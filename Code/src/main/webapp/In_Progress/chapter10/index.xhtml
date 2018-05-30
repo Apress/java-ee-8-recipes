@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:composition template="../layout/custom_template.xhtml">
+                <ui:define name="content">
+                    <h:form>
+                        <h3>Chapter 10 Recipe Examples</h3>
+                        <h:commandLink value="Recipe 10-1" action="#{authorController.populateAllAuthors}" />
+                        <br/>
+                        <h:outputLink value="recipe10_2a.xhtml">
+                            <h:outputText value="Recipe 10-2"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_4a.xhtml">
+                            <h:outputText value="Recipe 10-4a"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_4b.xhtml">
+                            <h:outputText value="Recipe 10-4b"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:commandLink value="Recipe10-5a" action="#{authorController.findAuthorBooks}"/>
+                        <br/>
+                        <h:commandLink value="Recipe10-5b" action="#{authorController.findAuthorBooksWithoutMapping}"/>
+                        <br/>
+                        <h:outputLink value="recipe10_6a.xhtml">
+                            <h:outputText value="Recipe 10-6"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_8a.xhtml">
+                            <h:outputText value="Recipe 10-8"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_9a.xhtml">
+                            <h:outputText value="Recipe 10-9"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_10a.xhtml">
+                            <h:outputText value="Recipe 10-10"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_11.xhtml">
+                            <h:outputText value="Recipe 10-11"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_12.xhtml">
+                            <h:outputText value="Recipe 10-12"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_13.xhtml">
+                            <h:outputText value="Recipe 10-13"/>
+                        </h:outputLink>
+                        <br/>
+                        <h:outputLink value="recipe10_14.xhtml">
+                            <h:outputText value="Recipe 10-14"/>
+                        </h:outputLink>
+                        <br/>
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+        </h:form>
+        <p>
+
+        </p>
+    </h:body>
+</html>

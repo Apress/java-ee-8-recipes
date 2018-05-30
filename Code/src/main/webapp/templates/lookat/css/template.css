@@ -1,0 +1,192 @@
+body
+{
+  margin: 0 auto;
+  padding: 0;
+  background-color: #262626;
+  background-image: url('Page-BgTexture.jpg?ln=images');
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: top left;
+  font-family: Verdana,Arial, Helvetica, Sans-Serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: normal;
+  color: #BDBDBD;
+  
+}
+
+p {
+margin: 0px 0px;
+font-family:Verdana;
+line-height:250%;
+text-align:justify;
+}
+
+
+#wrapper
+{
+  width: 874px;
+  margin-left:auto;
+  margin-right:auto;
+  border:0px solid #B8B8B8;
+}
+
+#header {
+
+  width: 874px;
+  height: 175px;
+  background-image: url('Header.jpg?ln=images');
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-top:33px;
+	
+}
+
+#footer 
+{
+  background-repeat:no-repeat;
+  background-image: url('Footer.png?ln=images');
+  width: 874px;
+  height: 100px;
+  
+}
+
+#content {
+	padding:15px;
+	background:rgb(23,23,23);
+}
+
+#menu ul{
+  background-repeat:no-repeat;
+  background-image: url('nav.png?ln=images');
+  position:absolute;
+  top:0px;
+  width:874px;
+}
+
+#menu ul li {
+ float:left;
+ line-height:33px;
+ text-align:center;
+ margin:0px 35px 5px 5px;
+}
+
+#menu ul li a {
+	font-size:13px;
+	text-decoration:none;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+
+#logo {
+	float:right;
+	margin-right:20px;
+	font-size:25px;
+}
+
+a
+{
+  text-decoration: underline;
+  color: #B8B8B8;
+}
+
+/* Adds special style to an unvisited link. */
+a:link
+{
+  text-decoration: underline;
+  color: #B8B8B8;
+}
+
+/* :hover - adds special style to an element when you mouse over it. */
+a:hover, a.hover
+{
+  text-decoration: none;
+  color: #9E9E9E;
+}
+
+/* Finish Content link style */
+
+/* Resert some headings default style & links default style for links in headings*/
+h1, h2, h3, h4, h5, h6,
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited
+{
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  font-family: Lucida Console,Verdana,Arial, Helvetica, Sans-Serif;
+ 
+}
+
+
+/* Start Content headings Fonts & Colors  */
+h1, h1 a, h1 a:link, h1 a:visited, h1 a:hover
+{
+  font-size: 27px;
+  color: #B8B8B8;
+}
+
+h2, h2 a, h2 a:link, h2 a:visited, h2 a:hover
+{
+  font-size: 25px;
+  color: #B8B8B8;
+}
+
+h3, h3 a, h3 a:link, h3 a:visited, h3 a:hover
+{
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+h4, h4 a, h4 a:link, h4 a:visited, h4 a:hover
+{
+  font-size: 14px;
+  color: #BDBDBD;
+}
+
+h5, h5 a, h5 a:link, h5 a:visited, h5 a:hover
+{
+  font-size: 13px;
+  color: #BDBDBD;
+}
+
+h6, h6 a, h6 a:link, h6 a:visited, h6 a:hover
+{
+  font-size: 11px;
+  color: #BDBDBD;
+}
+
+ul
+{
+  list-style-type: none;
+  color: #9E9E9E;
+  margin:0;
+  padding:0;
+}
+
+li
+{
+ 
+  font-size: 11px;
+}
+
+th {
+	background:#FFFFF6;
+	color:rgb(50,4,2);
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 15px;
+	-webkit-border-radius-topleft: 15px;
+	-webkit-border-radius-topright: 15px;
+}
+
+td {
+	text-align:center;
+	
+}
+
+
+.ui-widget-content{
+	background:transparent;
+	 color: #BDBDBD;
+}

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+Book:  Java EE 8 Recipes
+Recipe: 5-5
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="layout/custom_template_search.xhtml">
+            <ui:define name="content">
+                <h:messages globalOnly="true"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:form id="contactForm">
+                    <h1>Subscribe to Newsletter</h1>
+                    <p>
+                        <h:outputText id="newsletterSubscriptionDesc" 
+                                      value="#{contactController.newsletterDescription}"/>
+                    </p>
+
+                    <br/>
+                    <h:outputLabel for="first" value="First: "/>
+                    <h:inputText id="first" size="40" value="#{contactController.current.first}">
+                        <f:validateLength minimum="1" maximum="40"/>
+                    </h:inputText>
+                    <br/>
+                    <h:message id="firstError"
+                               for="first"
+                               errorStyle="color:red"/>
+                    <br/>
+                    <h:outputLabel for="last" value="Last: "/>
+                    <h:inputText id="last" size="40" value="#{contactController.current.last}">
+                        <f:validateLength minimum="1" maximum="40"/>
+                    </h:inputText>
+                    <br/>
+                    <h:message id="lastError"
+                               for="last"
+                               errorStyle="color:red"/>
+                    <br/>
+                    <h:outputLabel for="email" value="Email: "/> 
+                    <h:inputText id="email" size="40" value="#{contactController.current.email}">
+                        <f:validateBean/>
+                    </h:inputText>
+                    <br/>
+                    <h:message id="emailError"
+                               for="email"
+                               errorStyle="color:red"/>
+                    <br/>
+                    <h:outputLabel for="password" value="Enter a password for site access: "/>
+                    <h:inputSecret id="password" size="40" value="#{contactController.current.password}"/>
+                    <br/>
+                    <h:outputLabel for="passwordConfirm" value="Confirm Password: "/>
+                    <h:inputSecret id="passwordConfirm" size="40"
+                                   validator="#{contactController.validatePassword}"/>
+                    <br/>
+                    <h:message id="passwordConfirmError"
+                               for="passwordConfirm"
+                               style="color:red"/>
+                    <br/><br/>
+                    <h:outputLabel for="description" value="Enter your book interests"/>
+                    <br/>
+                    <h:inputTextarea id="description" rows="5" cols="100" value="#{contactController.current.description}"/>
+                    <br/>
+                    <h:outputLabel for="occupation" value="Occupation: "/>
+                    <h:selectOneMenu id="occupation" value="#{contactController.current.occupation}">
+                        <f:selectItem itemLabel="" itemValue=""/>
+                        <f:selectItems  value="#{contactController.occupationList}"/>
+                    </h:selectOneMenu>
+                    <br/><br/>
+                    <h:outputLabel for="newsletterList" value="Newsletters:"/>
+                    <h:selectManyListbox id="newsletterList" value="#{contactController.current.newsletterList}">
+                        <f:selectItems noSelectionValue="None" value="#{contactController.allNewsletters}"/>
+                    </h:selectManyListbox>
+                    
+                    <br/><br/>
+                    <h:commandButton id="contactSubmit" action="#{contactController.subscribe}" value="Save"/>
+                    <br/><br/>
+                    <h:commandLink id="manageAccount" action="#{contactController.manage}" value="Manage Subscription"/>
+                    <br/><br/>
+                    <h:outputLink id="homeLink" value="home.xhtml">Home</h:outputLink>
+                </h:form>    
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

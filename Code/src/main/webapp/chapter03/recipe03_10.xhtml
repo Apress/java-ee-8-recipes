@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Book:  Java EE 8 Recipes
+Recipe: 3-10 Arithmetic and Reserved Words
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Recipe 3-10:  Arithmetic and Reserved Words</title>
+    </h:head>
+    <h:body>
+        <h:form id="componentForm">
+            <h1>JSF Arithmetic and Reserved Words in EL</h1>
+            <p>
+                The following examples use JSF EL to perform some arithmetic.
+            </p>
+            1 + 1 = #{1 + 1}
+            <br/>
+            <h:outputText value="20 / 5 = #{20 / 5}"/>
+            <br/>
+            
+            <h:outputText rendered="#{1 + 1 eq 2}" value="1 + 1 DOES equal 2"/>
+            <br/>
+            <h:outputText rendered="#{5 * 4 != 20}" value="Is 5 * 4 equal to 20?"/>
+            <br/>
+            <h:outputText rendered="#{5 * 5 eq 25 and 1 + 1 eq 2}" value="Combining some expressions"/>
+            <br/>
+            <c:if test="#{evaluationController.expr1()}">
+                This will be displayed if expr1() evaluates to true.
+            </c:if>
+            <br/>
+            <c:if test="#{evaluationController.expr2() or evaluationController.field1}">
+                This will be displayed if expr2() or field1 evaluates to true.
+            </c:if>
+        </h:form>    
+    </h:body>
+</html>

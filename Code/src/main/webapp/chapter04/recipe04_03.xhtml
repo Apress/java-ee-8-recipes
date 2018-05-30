@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+Book:  Java EE 8 Recipes
+Recipe: 4-3
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="layout/custom_template_search.xhtml">
+            <ui:define name="content">
+                <h:messages globalOnly="true"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:form id="contactForm">
+                    <h1>Subscribe to Newsletter</h1>
+                    <p>
+                        <h:outputText  id="newsletterSubscriptionDesc" 
+                                      value="#{contactController.newsletterDescription}"/>
+                    </p>
+
+                    <br/>
+                    <h:outputLabel for="first" value="First: "/>
+                    <h:inputText id="first" size="40" value="#{contactController.current.first}">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="2" maximum="40"/>
+                    </h:inputText>
+                    <br/>
+                    <h:outputLabel for="last" value="Last: "/>
+                    <h:inputText id="last" size="40" value="#{contactController.current.last}">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="2" maximum="40"/>
+                    </h:inputText>
+                    <br/>
+                    <h:outputLabel for="email" value="Email: "/> 
+                    <h:inputText id="email" size="40" value="#{contactController.current.email}">
+                        <f:validateRequired/>
+                        <f:validateRegex pattern=""/>
+                    </h:inputText>
+                        
+                    <br/>
+                    <h:outputLabel for="password" value="Enter a password for site access: "/>
+                    <h:inputSecret id="password" size="40" value="#{contactController.current.password}">
+                        <f:validateRegex pattern=""/>
+                    </h:inputSecret>
+                    <br/><br/>
+                    <h:outputLabel  for="description" value="Enter your book interests"/>
+                    <br/>
+                    <h:inputTextarea id="description" rows="5" cols="100" value="#{contactController.current.description}"/>
+                    <br/>
+                    <h:commandButton id="contactSubmit" action="#{contactController.subscribe}" value="Save"/>
+                    <br/><br/>
+                    <h:commandLink id="manageAccount" action="#{contactController.manage}" value="Manage Subscription"/>
+                    <br/><br/>
+                </h:form>    
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

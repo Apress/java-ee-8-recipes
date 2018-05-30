@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- INTERFACE -->
+    <composite:interface>
+        <composite:attribute name="searchAction" default="#{bookstoreSearchController.searchAuthors(ch6AuthorController.completeAuthorList)}"
+                      method-signature="java.lang.String action(java.util.List)"/>
+    </composite:interface>
+
+    <!-- IMPLEMENTATION -->
+    <composite:implementation>
+        <h:form id="searchForm">
+            <h:outputText id="error" value="#{bookstoreSearchController.errorText}"/>
+            <br/>
+            <!-- implementation without autocomplete is commented -->
+            <!--h:inputText id="searchText" styleClass="searchBox" size="75" value="#{bookstoreSearchController.searchText}"/-->
+            
+            <p:autoComplete id="searchText" value="#{bookstoreSearchController.searchText}"     
+                    completeMethod="#{ch6AuthorController.complete(bookstoreSearchController.searchText)}"/>
+            <h:commandButton id="searchButton" value="Search" action="#{cc.attrs.searchAction}"/>
+            
+        </h:form>
+    </composite:implementation>
+</html>
