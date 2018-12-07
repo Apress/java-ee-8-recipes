@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head jsf:id="head">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ 
+    </head>
+    <body jsf:id="body">
+        <form jsf:id="form" jsf:prependId="false">
+            <input type="email" jsf:id="value1" value="#{ajaxBean.value1}">
+            </input>
+            <br/><br/>
+            <input type="text" jsf:id="value2" value="#{ajaxBean.value2}">
+                
+            </input>
+            <br/>
+            <br/>
+            <input type="submit" jsf:id="submitStatus" jsf:value="#{ajaxBean.status}"
+                   jsf:action="#{ajaxBean.process()}" value="Process"/>
+            <label for="status">Message: </label>
+            <output jsf:id="status">#{ajaxBean.status}</output>
+        </form>
+    </body>
+</html>

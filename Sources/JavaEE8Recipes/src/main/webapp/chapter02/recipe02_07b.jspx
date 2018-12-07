@@ -1,0 +1,29 @@
+<!-- 
+    Document   : recipe02_07b
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <head>
+        <title>Recipe 2-7: Embedding Expressions in EL</title>
+    </head>
+    <body>
+        <jsp:useBean id="expBean" class="org.javaee8recipes.chapter02.recipe02_07.Expressions"/>
+        <h1>Arithmetic Expressions</h1>
+        <p>
+            The following expressions demonstrate how to perform arithmetic using EL.  
+        </p>
+        10 - 4 = ${10 - 4}
+        <br/>
+        85 / 15 = ${85 / 15}
+        <br/>
+        847 divided by 6 = ${847 div 6}
+        <br/>
+        ${expBean.num1} * ${expBean.num2} = ${expBean.num1 * expBean.num2}
+        
+    </body>
+
+</html>

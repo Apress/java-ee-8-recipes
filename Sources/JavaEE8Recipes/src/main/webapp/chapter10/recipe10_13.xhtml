@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+Book:  Java EE7 Recipes
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Acme Bookstore</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="layout/custom_template_search.xhtml">
+
+
+            <ui:define name="content">
+                <h1>Recipe 10-13: Retrieving Entity Subclasses</h1>
+                <br/>
+                <p>
+                    The following dataTable is populatee via the BookCategoryFacade
+                    getBookCatgories method, which utilizes the TREAT operation.
+                </p>
+                <h:dataTable id="table" value="#{bookCategoryController.bookCategories}"
+                             var="category">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{category.name}"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Genre"/>
+                        </f:facet>
+                        <h:outputText value="#{category.genre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Description"/>
+                        </f:facet>
+                        <h:outputText value="#{category.categoryDesc}"/>
+                    </h:column>
+
+                    
+                </h:dataTable>
+            </ui:define>
+
+
+        </ui:composition>
+
+    </h:body>
+</html>

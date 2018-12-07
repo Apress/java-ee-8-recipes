@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+   <persistence-unit name="JavaEERecipesPU" transaction-type="JTA">
+    <jta-data-source>jdbc/DerbyConnection</jta-data-source>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+  </persistence-unit>
+  <persistence-unit name="JavaEERecipesLOCAL" transaction-type="RESOURCE_LOCAL">
+    <!-- Uncomment classes per the example you are running -->
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.javaee8recipes.chapter08.entity.BookAuthor08</class>
+    <!-- Uncomment classes below for Recipe 8-6 -->
+    <class>org.javaee8recipes.chapter08.recipe08_06.Author08</class>
+    <class>org.javaee8recipes.chapter08.recipe08_06.AuthorDetail08</class>
+    <!-- Uncomment classes below for Recipe 8-7 -->
+    <class>org.javaee8recipes.chapter08.recipe08_07.Author</class>
+    <class>org.javaee8recipes.chapter08.recipe08_07.AuthorDetail</class>
+    <!-- Uncomment classes below for Recipe 8-8 -->
+    <class>org.javaee8recipes.chapter08.recipe08_08.Book</class>
+    <class>org.javaee8recipes.chapter08.recipe08_08.BookAuthorMany</class>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.user" value="username"/>
+      <property name="javax.persistence.jdbc.password" value="password"/>
+      <property name="javax.persistence.jdbc.url" value="url"/>
+    </properties>
+  </persistence-unit>
+</persistence>

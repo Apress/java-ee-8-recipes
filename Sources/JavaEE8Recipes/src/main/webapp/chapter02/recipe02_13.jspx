@@ -1,0 +1,27 @@
+<!-- 
+    Document   : recipe02_13
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <jsp:directive.page errorPage="recipe02_13_errorPage.jsp"/>
+    
+    <head>
+        <title>Recipe 2-13:  </title>
+    </head>
+    <body>
+        <h1>There is an error on this page</h1>
+        <p>
+            This will produce an error:
+            <jsp:scriptlet>
+             if (request.getParameter("param").equals("value")) {
+                System.out.println("test");
+             }
+            </jsp:scriptlet>
+        </p>
+    </body>
+
+</html>

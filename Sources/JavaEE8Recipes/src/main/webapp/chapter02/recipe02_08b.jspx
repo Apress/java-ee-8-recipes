@@ -1,0 +1,40 @@
+<!-- 
+    Document   : recipe02_08b
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <head>
+        <title>Recipe 2-8: Passing Parameters</title>
+    </head>
+    <body>
+       
+        <h1>Passing Parameters</h1>
+        <p>
+            The following parameters will were passed from the original JSP.  
+        </p>
+        <form method="post" action="recipe02_08a.jspx">
+        Param 1: <jsp:expression>request.getParameter("param1") </jsp:expression>
+        <br/>
+        Param 2: <jsp:expression> request.getParameter("param2") </jsp:expression>
+        <br/>
+        Param 3: <jsp:expression> request.getParameter("param3") </jsp:expression>
+        <br/>
+        OR using value expressions
+        <br/>
+        Param 1: ${ param.param1 }
+        <br/>
+        Param 2: ${ param.param2 }
+        <br/>
+        Param 3: ${ param.param3 }
+        <br/>
+        
+       
+        <input type="submit" value="Back to Page 1"/>
+        </form>
+    </body>
+
+</html>

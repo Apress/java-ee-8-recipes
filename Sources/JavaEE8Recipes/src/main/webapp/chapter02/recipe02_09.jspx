@@ -1,0 +1,25 @@
+<!-- 
+    Document   : recipe02_09
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:cust="custom"
+      version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <head>
+        <title>Recipe 2-9: Creating a Custom JSP Tag</title>
+    </head>
+    <body>
+       
+        <h1>Custom JSP Tag</h1>
+        <p>
+            The custom JSP tag is used as the footer for this page.  
+            <br/>
+        </p>
+        <cust:signature/>
+        
+    </body>
+
+</html>

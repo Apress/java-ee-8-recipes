@@ -1,0 +1,30 @@
+<!-- 
+    Document   : recipe02_08a
+    Author     : juneau
+-->
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      version="2.0">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+    <head>
+        <title>Recipe 2-8: Passing Parameters</title>
+    </head>
+    <body>
+       
+        <h1>Passing Parameters</h1>
+        <p>
+            The following parameters will be passed to the next JSP.  
+        </p>
+        <form method="get" action="recipe02_08b.jspx">
+        Param 1: <input id="param1" name="param1" type="text" value="1"/>
+        <br/>
+        Param 2: <input name="param2" type="text" value="2 + 0"/>
+        <br/>
+        Param 3: <input id="param3" name="param3" type="text" value="three"/>
+        <br/>
+        <input type="submit" value="Go to next page"/>
+        </form>
+    </body>
+
+</html>

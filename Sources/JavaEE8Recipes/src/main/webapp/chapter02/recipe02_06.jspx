@@ -1,0 +1,27 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fct="/WEB-INF/tlds/functions.tld">
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <body>
+        <form method="get">
+            <p>Name one of the primitive Java types:
+                <input type="text" id="typename" name="typename" size="40"/>
+            </p>
+            <br/>
+            <input type="submit"/>
+        </form>
+        <jsp:useBean id="conditionalBean" scope="request" class="org.javaee8recipes.chapter02.recipe02_05.ConditionalClass"/>
+        <jsp:setProperty name="conditionalBean" property="typename"
+                         value="${param.typename}" />
+        <c:if test="${fct:isPrimitive(conditionalBean.typename)}" >
+            ${ conditionalBean.typename } is a primitive type.
+        </c:if>
+
+        <c:if test="${fn.length(conditionalBean.typename) > 0 and !fct:isPrimitive(conditionalBean.typename)}" >
+            ${ conditionalBean.typename } is not a primitive type.
+        </c:if>
+
+    </body>
+</html>

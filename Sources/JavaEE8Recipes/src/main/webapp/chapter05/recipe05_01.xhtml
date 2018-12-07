@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+Book:  Java EE 8 Recipes
+Recipe: 5-1
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                
+                template="layout/custom_template_search.xhtml">
+    <ui:define name="content">
+        <h:messages globalOnly="true"  errorStyle="color: red" infoStyle="color: green"/>
+        <h:form id="contactForm">
+            <h1>Subscribe to Newsletter</h1>
+            <p>
+                <h:outputText id="newsletterSubscriptionDesc" 
+                              value="#{ch5ContactController.newsletterDescription}"/>
+            </p>
+
+            <br />
+            <h:panelGrid columns="2" bgcolor="" border="0">
+                <h:panelGroup>
+                    <h:outputLabel for="first" value="First: "/>
+                    <h:inputText id="first" size="40" value="#{ch5ContactController.current.first}">
+                        <f:validateLength minimum="1" maximum="40"/>
+                        <f:ajax event="blur" render="firstError"/>
+                    </h:inputText>
+                </h:panelGroup>
+                <h:panelGroup>
+
+                    <h:outputLabel for="last" value="Last: "/>
+                    <h:inputText id="last" size="40" value="#{ch5ContactController.current.last}">
+                        <f:validateLength minimum="1" maximum="40"/>
+                        <f:ajax event="blur" render="lastError"/>
+                    </h:inputText>
+                </h:panelGroup>
+
+                <h:message id="firstError"
+                           for="first"
+                           errorStyle="color:red"/>
+
+                <h:message id="lastError" 
+                           for="last"
+                           errorStyle="color:red"/>
+                <h:panelGroup>
+                    <h:outputLabel for="email" value="Email: "/> 
+                    <h:inputText id="email" size="40" value="#{ch5ContactController.current.email}">
+                        <f:ajax event="blur" render="emailError"/>
+                    </h:inputText>
+                </h:panelGroup>
+                <h:panelGroup/>
+                <h:message id="emailError"
+                           for="email"
+                           errorStyle="color:red"/>
+                <h:panelGroup/>
+
+
+                <h:selectOneRadio title="Gender" id="gender" value="#{ch5ContactController.current.gender}">
+                    <f:selectItem  itemValue="M" itemLabel="Male"/>
+                    <f:selectItem itemValue="F" itemLabel="Female"/>
+                </h:selectOneRadio>
+                <h:panelGroup>
+                    <h:outputLabel for="occupation" value="Occupation: "/>
+                    <h:selectOneMenu id="occupation" value="#{ch5ContactController.current.occupation}">
+                        <f:selectItems value="#{ch5ContactController.occupationList}"/>
+                    </h:selectOneMenu>
+                </h:panelGroup>
+                <h:message id="genderError"
+                           for="gender"
+                           errorStyle="color:red"/>
+
+            </h:panelGrid>
+            <br />
+            <h:outputLabel for="description" value="Enter your book interests"/>
+            <br />
+            <h:inputTextarea id="description" rows="5" cols="75" value="#{ch5ContactController.current.description}"/>
+
+            <br />
+            <h:panelGrid columns="2">
+                <h:outputLabel for="password" value="Enter a password for site access: "/>
+                <h:inputSecret id="password" size="40" value="#{ch5ContactController.current.password}">
+                    <f:validateRequired/>
+                    <f:ajax event="blur" render="passwordError"/>
+                </h:inputSecret>
+
+
+                <h:outputLabel for="passwordConfirm" value="Confirm Password: "/>
+                <h:inputSecret id="passwordConfirm" size="40" value="#{ch5ContactController.passwordConfirm}"
+                               validator="#{ch5ContactController.validatePassword}">
+                    <f:ajax   event="blur" render="passwordConfirmError"/>
+                </h:inputSecret>
+            </h:panelGrid>
+            <h:message id="passwordError"
+                       for="password"
+                       style="color:red"/>
+            <br />
+            <h:message id="passwordConfirmError"
+                       for="passwordConfirm"
+                       style="color:red"/>
+            <br />
+            <hr/>
+            <br />
+
+            <h:panelGrid columns="3">
+                <h:panelGroup>
+                    <h:outputLabel for="newsletterList" value="Newsletters:" style=" "/>
+                    <h:selectManyListbox id="newsletterList" value="#{ch5ContactController.current.newsletterList}">
+                        <f:selectItems value="#{ch5ContactController.newsletterList}"/>
+                    </h:selectManyListbox>
+                </h:panelGroup>
+                <h:panelGroup/>
+                <h:panelGroup>
+                    <h:panelGrid columns="1">
+                        <h:panelGroup>
+                            <h:outputLabel for="notifyme" value="Would you like to receive other promotional email?"/>
+                            <h:selectBooleanCheckbox id="notifyme" value="#{ch5ContactController.current.receiveNotifications}"/>
+                        </h:panelGroup>
+                        <h:panelGroup/>
+                        <hr/>
+                        <h:panelGroup/>
+                        <h:panelGroup>
+                            <h:outputLabel for="notificationTypes" value="What type of notifications are you interested in recieving?"/>
+                            <br />
+                            <h:selectManyCheckbox id="notifyTypes" value="#{ch5ContactController.current.notificationType}">
+                                <f:selectItems value="#{ch5ContactController.notificationTypes}"/>
+                            </h:selectManyCheckbox>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </h:panelGroup>
+            </h:panelGrid>
+            <hr/>
+            <br />
+
+            <h:commandButton id="contactSubmit" action="#{ch5ContactController.subscribe}" value="Save"/>
+            <h:panelGrid  columns="2" width="400px;">
+                <h:commandLink id="manageAccount" action="#{ch5ContactController.manage}" value="Manage Subscription"/>
+
+                <h:outputLink id="homeLink" value="home.xhtml">Home</h:outputLink>
+            </h:panelGrid>
+        </h:form>    
+    </ui:define>
+</ui:composition>

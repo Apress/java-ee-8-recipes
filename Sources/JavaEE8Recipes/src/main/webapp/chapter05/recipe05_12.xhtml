@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+Book:  Java EE 8 Recipes
+Recipe: 5-12
+Author: J. Juneau
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h5="http://xmlns.jcp.org/jsf/composite/components/html5">
+    <head>
+    </head>
+
+    <body>
+
+        <ui:composition template="layout/custom_template_search.xhtml">
+            <ui:define name="content">
+
+                <h1>HTML5 Movie</h1>
+                <p>
+                    <h5:video id="myvideo" width="300"
+                              source="https://www.w3schools.com/html/mov_bbb.mp4"/>
+                </p>
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
